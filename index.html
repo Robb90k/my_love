@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>t amo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: linear-gradient(to bottom, #ff99cc, #ffe6f2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+       .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border: 2px solid #ff69b4;
+        }
+
+        h1 {
+            color: #ff69b4;
+            font-weight: bold;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label, input {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        input {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background-color: #ff99cc;
+        }
+
+        pre {
+            background: #f4f4f4;
+            padding: 10px;
+            border-radius: 5px;
+            border: 2px solid #ff69b4;
+        }
+
+       .heart {
+            font-size: 30px;
+            color: #ff69b4;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Generador De Poemas de Amor</h1>
+        <form id="poemForm">
+            <span class="heart">❤️</span>
+            <label for="name">Tu nombre:</label>
+            <input type="text" id="name" name="name" required>
+            <button type="submit">Generar poema de amor</button>
+        </form>
+        <h2 id="poemTitle">Tu Poema de Amor:</h2>
+        <pre id="poemText"></pre>
+    </div>
+
+    <script>
+        // Your JavaScript code here
+        const poems = [
+            "Rosas son rojas, violetas son azules, %name%, mi corazón por ti late fuerte y constante.",
+            "En este día tan especial, mi querida %name%, pienso en ti y siento paz y alegría.",
+            "Las estrellas en el cielo, tan brillantes y ciertas, me recuerdan al amor que por ti tengo, %name%.",
+            "Cada momento contigo es tan perfecto, %name%, eres mi guía, mi luz en lo incierto.",
+            "El sol brilla más cuando estás cerca, %name%, mi amor por ti siempre prospera.",
+            "Tus ojos son como luceros, %name%, iluminas mis senderos.",
+            "Como el río fluye al mar, %name%, a ti siempre quiero regresar.",
+            "En el jardín de la vida, tú eres mi flor, %name%, mi amor por ti es eterno y sin temor.",
+            "Las hojas caen en otoño, %name%, pero mi amor por ti nunca será abandono.",
+            "El viento susurra tu nombre en mis sueños, %name%, eres mi amor, mi dulce ensueño.",
+            "Tu sonrisa es mi sol cada mañana, %name%, contigo la vida es una bella trama.",
+            "La luna llena en el cielo nocturno, %name%, refleja el amor que por ti guardo profundo.",
+            "Eres mi inspiración y mi alegría, %name%, contigo cada día es poesía.",
+            "Cada latido de mi corazón dice tu nombre, %name%, en mi vida eres lo más noble.",
+            "En la sinfonía del amor, tú eres mi canción, %name%, mi eterna devoción.",
+            "En el lienzo de mi vida, eres mi color, %name%, pintas mis días con amor.",
+            "Tus abrazos son mi refugio y mi calma, %name%, contigo siempre encuentro la paz en mi alma.",
+            "Eres el verso más bello de mi poema, %name%, mi amor por ti es un eterno emblema.",
+            "Como el sol y la luna en perfecta armonía, %name%, así es nuestro amor cada día.",
+            "Eres mi estrella en la noche oscura, %name%, contigo cada momento es una aventura."
+        ];
+
+        function generatePoem(name) {
+            const poem = poems[Math.floor(Math.random() * poems.length)];
+            return poem.replaceAll('%name%', name);
+        }
+
+        document.getElementById('poemForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const poem =generatePoem(name);
+            document.getElementById('poemText').textContent = poem;
+        });
+    </script>
+</body>
+</html>
